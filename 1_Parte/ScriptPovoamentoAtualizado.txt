@@ -1,0 +1,102 @@
+use mydb;
+
+
+
+INSERT INTO Motorista
+	(CartaConducao, nome, salariohora)
+	VALUES 
+		(1869334534,'Joao Marques', 8),
+		(4293146239,'Antonio Barbosa', 6),
+        (7863234234,'Marco Ferreira', 7),
+        (8884377865,'Pedro Martins', 5),
+        (2804957824,'Hugo Sa', 6),
+        (6823746566,'Rafael Sousa', 3),
+        (2435634234,'Daniel Fernades', 5),
+        (7769345357,'Nelson Morais', 8),
+        (9783659103,'Jose Miranda', 7),
+        (5098324610,'Artur Silva', 5);
+
+insert into Camiao
+	(Matricula, capacidade, despesahora, tipocamiao)
+    values
+		('34-MU-23', 6000, 5,'Madeira'),
+        ('67-RE-35', 9000, 8,'Ferro'),
+        ('44-AD-79', 7500, 7,'Combustivel'),
+        ('47-IJ-75', 13000, 10,'Animais'),
+        ('24-TE-65', 8500, 6,'Madeira'),
+        ('97-MN-38', 3000, 3,'Produtos Alimentares'),
+        ('36-DC-90', 8000, 6,'Combustivel'),
+        ('85-JP-12', 10000, 10,'Ferro'),
+        ('27-AX-68', 6000, 5,'Animais'),
+        ('56-MZ-91', 7000, 6, 'Produtos Alimentares');
+
+insert into cliente
+	(NIF, nome)
+    values
+		(93264598, 'Joao Ferreira'),
+        (98745034, 'Antonio Silva'),
+        (23478692, 'Paulo Sousa'),
+        (29846783, 'Bruno Marques'),
+        (76509243, 'Pedro Miranda'),
+        (45624346, 'Andre Morais'),
+        (86475234, 'Filipe Sa');
+
+insert into ContactoCliente
+	(Email, telefone, NIFCliente)
+    values
+		('joaoferreira@gmail.com', 252932723, 93264598),
+        ('antoniosilva@hotmail.com', 234098699, 98745034),
+        ('paulosfnsousa70@hotmail.com', 387946592, 23478692),
+        ('marquesbruno@gmail.com', 983274691, 29846783),
+        ('pm60@yahoo.com', 873476235, 76509243),
+        ('a_morais@sapo.pt', 568734786, 45624346),
+        ('filipesa34@yahoo.com', 862739851, 86475234);
+        
+insert into MoradaCliente
+	(IdMorada, codigopostal, rua, NIFCliente)
+    values
+		(1, '4775-242', 'Rua do Parque Industrial', 93264598),
+        (2, '2342-452', 'Rua da Igreja', 98745034),
+        (3, '2348-233', 'Lugar Travessa Velha', 23478692),
+        (4, '3487-465', 'Rua de Cima', 29846783),
+        (5, '8730-267', 'Rua de Senhora Nova', 76509243),
+        (6, '9867-847', 'Rua de Santa Clara', 45624346),
+        (7, '3879-235', 'Travessa de Real', 86475234);
+
+insert into Viagem
+	(IdViagem, horasdeviagem, distancia, localpartida, localchegada, CartaConducaoMotorista, MatriculaCamiao)
+    values
+		(1, 30, 1500, 'Varzea', 'Paris', 1869334534, '24-TE-65'),
+        (2, 30, 1500, 'Paris', 'Varzea',  1869334534, '24-TE-65'),
+        (3, 6, 500, 'Viana do Castelo', 'Cascais', 4293146239, '36-DC-90'),
+        (4, 70, 4000, 'Moscovo', 'Matosinhos', 7863234234, '67-RE-35'),
+        (5, 55, 3200, 'Varsovia', 'Vila Verde', 8884377865, '27-AX-68'),
+        (6, 20, 800, 'Sequeira', 'Madrid', 1869334534, '44-AD-79'),
+        (7, 5, 300, 'Peniche', 'Arcozelo', 2804957824, '24-TE-65'),
+        (8, 30, 2000, 'Berlim', 'Galegos', 7769345357, '56-MZ-91'),
+        (9, 60, 3800, 'Praga', 'Cambeses', 2435634234, '47-IJ-75'),
+        (10, 2, 200, 'Sequeira', 'Pedralva', 7769345357, '67-RE-35'),
+        (11, 50, 3500, 'Varsovia', 'Joane', 1869334534, '85-JP-12'),
+        (12, 14, 1200, 'Barcelona', 'Sequeira', 7863234234, '36-DC-90'),
+        (13, 6, 600, 'Faro', 'Varzea', 8884377865, '97-MN-38'),
+        (14, 8, 750, 'Sagres', 'Matosinhos', 7863234234, '27-AX-68'),
+        (15, 30, 3000, 'Sarajevo', 'Galegos', 4293146239, '47-IJ-75');
+
+insert into Encomenda
+	(Referencia, dataencomenda, pesocarga, tipocarga, valorencomenda, NIFCliente, IdViagem)
+    values
+		(1, '2014-05-01', 2800, 'Batatas', 2800, 93264598 , 13),
+        (2, '2009-11-01', 6700, 'Cebolas', 3000,  98745034, 8),
+        (3, '2016-08-30', 7800, 'Ferro', 10000, 23478692, 4),
+        (4, '2012-12-21', 8300, 'Madeira', 6000, 29846783, 1),
+        (5, '2012-12-24', 5600, 'Madeira', 7800, 76509243, 2),
+        (6, '2007-05-06', 7300, 'Gasolina', 8600, 45624346, 6),
+        (7, '2010-09-01', 12000, 'Animais', 12000, 86475234, 9),
+        (8, '2012-04-01', 9190, 'Ferro', 8000, 29846783, 11),
+        (9, '2011-07-14', 7000, 'Gasoleo', 5000, 76509243, 3),
+        (10, '2011-10-11', 5360, 'Animais', 4600, 98745034, 5),
+        (11, '2016-03-16', 8300, 'Madeira', 8000 , 76509243, 7),
+        (12, '2013-01-19', 7000, 'Ferro', 6700, 93264598, 10),
+        (13, '2011-04-28', 7100, 'Gasolina', 10000, 23478692, 12),
+        (14, '2013-08-30', 5800, 'Animais', 7000, 23478692, 14),
+        (15, '2010-12-12', 12000, 'Animais', 10000, 29846783, 15);
